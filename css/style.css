@@ -1,4 +1,4 @@
-/* PALETA DE COLORES */
+/* paleta de colores */
 :root {
   --negro: #000;
   --naranja: #ff6900;
@@ -62,7 +62,7 @@ button:focus-visible {
   box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
 }
 
-/* sombra del encabezado al hacer scroll */
+/* sombra del encabezado pa hacer scroll */
 .encabezado--scroll {
   box-shadow: 0 4px 20px rgb(0 0 0 / 18%);
 }
@@ -93,7 +93,7 @@ button:focus-visible {
   margin-left: 3.2rem;
 }
 
-/* navegacion  */
+/* nav  */
 .navegacion {
   display: flex;
   flex-direction: column;
@@ -192,7 +192,8 @@ button:focus-visible {
   padding: 3.2rem 0;
   background-color: var(--azul);
   background-image:
-    linear-gradient(90deg, rgb(0 68 101 / 88%) 0%, rgb(0 68 101 / 67%) 56%, rgb(0 63 105 / 30%) 100%);
+    linear-gradient(90deg, rgb(0 68 101 / 88%) 0%, rgb(0 68 101 / 67%) 56%, rgb(0 63 105 / 30%) 100%),
+    url("../img/ingenieria-software-fondo.webp");
   background-position: center;
   background-size: cover;
   color: var(--blanco);
@@ -287,7 +288,7 @@ button:focus-visible {
   bottom: -5rem;
   display: block;
   width: 52%;
-  background-image: url("../img/Ingenieria-de-Software-Perfil-interna-scaled.webp");
+  background-image: url("../img/ingenieria-software-img.webp");
   background-repeat: no-repeat;
   background-position: right center;
   background-size: contain;
@@ -628,10 +629,13 @@ button:focus-visible {
 }
 
 .item-ventaja {
-  padding: 2.4rem 1.8rem;
-  border: 1px solid rgb(255 255 255 / 15%);
+  overflow: hidden;
   border-radius: 1.8rem;
-  background: rgb(255 255 255 / 7%);
+}
+
+.item-ventaja img {
+  width: 100%;
+  height: auto;
 }
 
 .numero-ventaja {
@@ -689,7 +693,13 @@ button:focus-visible {
 .seccion-experto {
   width: 100%;
   padding: 6rem max(5%, calc((100% - 114rem) / 2));
-  background: var(--blanco);
+  background:
+    linear-gradient(rgb(8 45 72 / 76%), rgb(8 45 72 / 76%)),
+    url("../img/fondo-experto.webp") center / cover no-repeat;
+}
+
+.seccion-experto > h2 {
+  color: var(--blanco);
 }
 
 .contenedor-experto {
@@ -713,6 +723,7 @@ button:focus-visible {
 }
 
 /* laboratorios */
+
 .seccion-laboratorios {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(28rem, 0.9fr);
@@ -757,36 +768,55 @@ section#pasos .acordeon-pasos {
 }
 
 section#pasos .acordeon-item {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex: 0 0 140px;
   flex-direction: column;
   overflow: hidden;
-  background: var(--azulAlpha);
+  background: var(--azul-oscuro);
   color: var(--azul-oscuro);
   border-top: 3px solid var(--naranja);
   border-radius: 8px;
   cursor: pointer;
   transition: flex-basis 0.4s ease;
+  cursor: pointer;
 }
 
-section#pasos .acordeon-item:hover {
-  background: linear-gradient(135deg, var(--naranja), var(--amarillo)); /* adobe color */
-  color: var(--blanco);
+section#pasos .acordeon-item::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(8 45 72 / 48%), rgb(8 45 72 / 82%));
+  content: "";
+  pointer-events: none;
+}
+
+section#pasos .acordeon-imagen {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
 }
 
 /* paso abierto */
 section#pasos .acordeon-item.abierto {
   flex: 1 1 auto;
-  background: linear-gradient(135deg, var(--azul), var(--amarillo));
   color: var(--blanco);
 }
 
 section#pasos .acordeon-titulo {
+  position: relative;
+  z-index: 2;
   align-self: center;
   padding: 24px 14px;
   border: none;
   background: transparent;
-  color: inherit;
+  color: var(--blanco);
   font-family: inherit;
   font-size: 28px;
   font-weight: 700;
@@ -801,6 +831,8 @@ section#pasos .acordeon-item.abierto .acordeon-titulo {
 }
 
 section#pasos .acordeon-contenido {
+  position: relative;
+  z-index: 2;
   display: none;
   margin-top: auto;
   padding: 0 24px 30px;
@@ -831,16 +863,18 @@ section#pasos .acordeon-contenido a {
   letter-spacing: 0.05em;
 }
 
-/* PIE DE PÁGINA */
+/* footer*/
 .pie-pagina {
   padding: 5rem 0 2rem;
-  background: var(--azul-oscuro);
+  background:
+    linear-gradient(rgb(8 45 72 / 90%), rgb(8 45 72 / 90%)),
+    url("../img/banner-footer.webp") center / cover no-repeat;
   color: var(--blanco);
 }
 
 .contenedor-footer {
   display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
+  grid-template-columns: 2fr repeat(3, 1fr) 1.3fr;
   gap: 3rem;
   width: min(90%, 120rem);
   margin: 0 auto;
@@ -874,6 +908,18 @@ section#pasos .acordeon-contenido a {
   color: var(--turquesa);
 }
 
+.footer-redes a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-redes img {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: contain;
+}
+
 .footer-copy {
   width: min(90%, 120rem);
   margin: 3rem auto 0;
@@ -881,6 +927,11 @@ section#pasos .acordeon-contenido a {
   border-top: 1px solid rgb(255 255 255 / 20%);
   text-align: center;
 }
+
+
+
+/*  ----       mq------    */
+
 
 /* pantallas medianas */
 @media (max-width: 1050px) {
@@ -1012,6 +1063,11 @@ section#pasos .acordeon-contenido a {
 
   section#pasos .acordeon-item {
     flex: 0 0 auto;
+    min-height: 12rem;
+  }
+
+  section#pasos .acordeon-item.abierto {
+    min-height: 28rem;
   }
 
   section#pasos .acordeon-titulo,

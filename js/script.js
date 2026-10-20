@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tarjeta.classList.add('card-costo--activa');
         });
     });
-    /* Acordeon: abre el paso donde haces clic y cierra los demas */
+
+    /* acordeon: abre el paso donde haces clic y cierra los demas */
     const pasos = document.querySelectorAll('.acordeon-item');
 
     pasos.forEach(paso => {
