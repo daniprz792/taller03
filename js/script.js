@@ -24,14 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const pasos = document.querySelectorAll('.acordeon-item');
 
     pasos.forEach(paso => {
-    const cabecera = paso.querySelector('.acordeon-titulo');
-
-    cabecera.addEventListener('click', () => {
-        pasos.forEach(otro => {
-            const esteEsElClic = otro === paso;
-            otro.classList.toggle('abierto', esteEsElClic);
-            otro.querySelector('.acordeon-titulo').setAttribute('aria-expanded', esteEsElClic);
+        paso.addEventListener('click', () => {
+            pasos.forEach(otro => {
+                const esteEsElClic = otro === paso;
+                otro.classList.toggle('abierto', esteEsElClic);
+                otro.querySelector('.acordeon-titulo').setAttribute('aria-expanded', esteEsElClic);
+            });
         });
     });
-});
 });

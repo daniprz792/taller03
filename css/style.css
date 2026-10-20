@@ -765,6 +765,7 @@ section#pasos .acordeon-item {
   color: var(--azul-oscuro);
   border-top: 3px solid var(--naranja);
   border-radius: 8px;
+  cursor: pointer;
   transition: flex-basis 0.4s ease;
 }
 
